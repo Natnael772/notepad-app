@@ -11,8 +11,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class HelloApplication extends Application {
     Scene sceneLogin;
@@ -92,6 +91,36 @@ public class HelloApplication extends Application {
                             new FileChooser.ExtensionFilter("PDF files", "*.pdf"));
 
                     File selectedFile = fileChooser.showOpenDialog(stage);
+                    String lineRead;
+                    String fileName,fileLocation;
+
+                    if(selectedFile!=null){
+
+                        fileName = selectedFile.getName();
+                        fileLocation = selectedFile.getAbsolutePath();
+                        stage.setTitle(fileName);
+
+                        System.out.println(fileName);
+                        System.out.println(fileLocation);
+                        BufferedReader reader=null;
+
+                        try {
+                            reader=new BufferedReader(new FileReader(fileLocation));
+
+                            while (true) {
+                                if ((lineRead = reader.readLine()) != null) {
+                                    System.out.println(lineRead);
+
+                                }
+                                else break;
+                            }
+                        } catch (FileNotFoundException ex) {
+                            throw new RuntimeException(ex);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+
+                    }
 
 
                 });
