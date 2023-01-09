@@ -5,10 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -16,7 +13,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
-    Scene scene;
+    Scene sceneLogin;
+    Scene sceneNotepad;
     @Override
     public void start(Stage stage) throws IOException {
 //        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -64,6 +62,28 @@ public class HelloApplication extends Application {
                 System.out.println(userinput);
                 System.out.println(pwdInput);
 
+                MenuBar menu = new MenuBar();
+                Menu file = new Menu("File");
+                Menu edit = new Menu("Edit");
+                Menu help = new Menu("Help");
+
+                MenuItem openItem = new MenuItem("Open");
+                MenuItem saveItem = new MenuItem("Save");
+                MenuItem saveAsItem = new MenuItem("Save As");
+                MenuItem exitItem = new MenuItem("Exit");
+
+                file.getItems().addAll(openItem,saveItem,saveAsItem,exitItem);
+                menu.getMenus().addAll(file,edit,help);
+
+                TextArea blankArea = new TextArea();
+                VBox layoutNotepad = new VBox(50d);
+                layoutNotepad.getChildren().addAll(menu,blankArea);
+                sceneNotepad = new Scene(layoutNotepad,500,430);
+
+                stage.setScene(sceneNotepad);
+                stage.setTitle("Notepad");
+                stage.show();
+
             }
 
         });
@@ -75,8 +95,8 @@ public class HelloApplication extends Application {
         VBox layout1 = new VBox(10);
         layout1.setPadding(new Insets(10d));
         layout1.getChildren().addAll(introLabel, userLabel,userArea,pwdLabel,pwdArea,btnLogin,btnExit);
-        scene = new Scene(layout1,500,430);
-        stage.setScene(scene);
+        sceneLogin = new Scene(layout1,500,430);
+        stage.setScene(sceneLogin);
         stage.setTitle("Notepad Application");
         stage.show();
 
