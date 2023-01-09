@@ -16,6 +16,12 @@ import java.io.*;
 public class HelloApplication extends Application {
     Scene sceneLogin;
     Scene sceneNotepad;
+    String lineRead;
+    String fileName;
+    String fileLocation="";
+
+    File file;
+
     @Override
     public void start(Stage stage) throws IOException {
 //        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -64,17 +70,17 @@ public class HelloApplication extends Application {
                 System.out.println(pwdInput);
 
                 MenuBar menu = new MenuBar();
-                Menu file = new Menu("File");
-                Menu edit = new Menu("Edit");
-                Menu help = new Menu("Help");
+                Menu fileMenu = new Menu("File");
+                Menu editMenu = new Menu("Edit");
+                Menu helpmenu = new Menu("Help");
 
                 MenuItem openItem = new MenuItem("Open");
                 MenuItem saveItem = new MenuItem("Save");
                 MenuItem saveAsItem = new MenuItem("Save As");
                 MenuItem exitItem = new MenuItem("Exit");
 
-                file.getItems().addAll(openItem,saveItem,saveAsItem,exitItem);
-                menu.getMenus().addAll(file,edit,help);
+                fileMenu.getItems().addAll(openItem,saveItem,saveAsItem,exitItem);
+                menu.getMenus().addAll(fileMenu,editMenu,helpmenu);
 
                 TextArea blankArea = new TextArea();
                 VBox layoutNotepad = new VBox(50d);
@@ -90,14 +96,13 @@ public class HelloApplication extends Application {
                     fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text files", "*.txt"),
                             new FileChooser.ExtensionFilter("PDF files", "*.pdf"));
 
-                    File selectedFile = fileChooser.showOpenDialog(stage);
-                    String lineRead;
-                    String fileName,fileLocation;
+                    file = fileChooser.showOpenDialog(stage);
 
-                    if(selectedFile!=null){
 
-                        fileName = selectedFile.getName();
-                        fileLocation = selectedFile.getAbsolutePath();
+                    if(file!=null){
+
+                        fileName = file.getName();
+                        fileLocation = file.getAbsolutePath();
                         stage.setTitle(fileName);
 
                         System.out.println(fileName);
@@ -127,6 +132,55 @@ public class HelloApplication extends Application {
                 });
 
                 //2. Save functionality
+                saveItem.setOnAction(e2->{
+                    fileChooser.setTitle("Save");
+                    String textToSave = blankArea.getText();
+                    FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Text file (.txt)", "*.txt");
+                    fileChooser.getExtensionFilters().add(extFilter);
+
+                    //If the file isnot saved before
+                    if(fileLocation.isBlank()) {
+                        System.out.println("The file isnot saved before");
+                        file = fileChooser.showSaveDialog(stage);
+                        fileLocation = file.getAbsolutePath();
+                        System.out.println(fileLocation);
+                        System.out.println(file);
+
+
+                        if (file != null) {
+
+                            try {
+                                System.out.println(textToSave);
+                                PrintWriter writer = new PrintWriter(file);
+                                writer.println(textToSave);
+                                writer.close();
+                            } catch (FileNotFoundException ex) {
+                                throw new RuntimeException(ex);
+                            }
+                        }
+                    }
+
+                        //If the file is already saved before
+                        else {
+                            file = new File(fileLocation);
+                            PrintWriter writer = null;
+                            try {
+                                writer = new PrintWriter(file);
+                                writer.println(textToSave);
+                                System.out.println("Saved");
+                                writer.close();
+                            } catch (FileNotFoundException ex) {
+                                throw new RuntimeException(ex);
+                            }
+
+
+                        }
+
+
+
+
+                });
+
 
                 stage.setScene(sceneNotepad);
                 stage.setTitle("Notepad");
