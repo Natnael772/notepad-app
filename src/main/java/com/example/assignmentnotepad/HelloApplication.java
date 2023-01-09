@@ -110,7 +110,7 @@ public class HelloApplication extends Application {
                             //Reading operation
                             while (true) {
                                 if ((lineRead = reader.readLine()) != null) {
-                                    System.out.println(lineRead);
+                                    blankArea.setText(lineRead);
 
                                 }
                                 else break;
@@ -127,10 +127,7 @@ public class HelloApplication extends Application {
                 });
 
                 //2. Save functionality
-                saveItem.setOnAction(e2->{
-
-
-                });
+             
 
 
                 stage.setScene(sceneNotepad);
