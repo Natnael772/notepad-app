@@ -107,6 +107,7 @@ public class HelloApplication extends Application {
                         try {
                             reader=new BufferedReader(new FileReader(fileLocation));
 
+                            //Reading operation
                             while (true) {
                                 if ((lineRead = reader.readLine()) != null) {
                                     System.out.println(lineRead);
