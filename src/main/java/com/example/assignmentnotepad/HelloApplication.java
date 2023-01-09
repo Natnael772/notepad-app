@@ -34,12 +34,12 @@ public class HelloApplication extends Application {
         TextArea pwdArea = new TextArea();
         pwdArea.setPrefHeight(30d);
 
-        Button login = new Button("Login");
-        login.setStyle("-fx-background-color: blue;");
-        login.setStyle("fx-color:black;");
-        login.setPrefHeight(35d);
-        Button exit = new Button("Exit");
-        exit.setPrefHeight(35d);
+        Button btnLogin = new Button("Login");
+        btnLogin.setStyle("-fx-background-color: blue;");
+        btnLogin.setStyle("fx-color:black;");
+        btnLogin.setPrefHeight(35d);
+        Button btnExit = new Button("Exit");
+        btnExit.setPrefHeight(35d);
 
 
         //ERROR Label
@@ -50,12 +50,17 @@ public class HelloApplication extends Application {
         errorLabel.setStyle("-fx-display:none;");
 
 
+
+
+
+
+        //Layout
         VBox layout1 = new VBox(10);
         layout1.setPadding(new Insets(10d));
-        layout1.getChildren().addAll(introLabel, userLabel,userArea,pwdLabel,pwdArea,login,exit);
-        scene = new Scene(layout1,400,600);
+        layout1.getChildren().addAll(introLabel, userLabel,userArea,pwdLabel,pwdArea,btnLogin,btnExit);
+        scene = new Scene(layout1,500,430);
         stage.setScene(scene);
-        stage.setTitle("Welcome");
+        stage.setTitle("Notepad Application");
         stage.show();
 
     }
