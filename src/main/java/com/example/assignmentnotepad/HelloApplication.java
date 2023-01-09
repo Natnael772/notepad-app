@@ -80,6 +80,18 @@ public class HelloApplication extends Application {
                 layoutNotepad.getChildren().addAll(menu,blankArea);
                 sceneNotepad = new Scene(layoutNotepad,500,430);
 
+
+                //1. Open functionality
+                openItem.setOnAction(e1->{
+
+                });
+                //2. Save functionality
+                saveItem.setOnAction(e2->{
+
+
+                });
+
+
                 stage.setScene(sceneNotepad);
                 stage.setTitle("Notepad");
                 stage.show();
