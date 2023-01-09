@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -31,8 +32,8 @@ public class HelloApplication extends Application {
         userArea.setPrefHeight(30d);
 
         Label pwdLabel = new Label("Password");
-        TextArea pwdArea = new TextArea();
-        pwdArea.setPrefHeight(30d);
+        PasswordField pwdArea = new PasswordField();
+        pwdArea.setPrefHeight(32d);
 
         Button btnLogin = new Button("Login");
         btnLogin.setStyle("-fx-background-color: blue;");
@@ -50,6 +51,22 @@ public class HelloApplication extends Application {
         errorLabel.setStyle("-fx-display:none;");
 
 
+        //Login functionality
+        btnLogin.setOnAction(e->{
+            String username = "natty";
+            String password = "123";
+            String userinput = userArea.getText();
+            String pwdInput = pwdArea.getText();
+
+
+            //Authentication
+            if(username.equals(userinput) && password.equals(pwdInput)){
+                System.out.println(userinput);
+                System.out.println(pwdInput);
+
+            }
+
+        });
 
 
 
