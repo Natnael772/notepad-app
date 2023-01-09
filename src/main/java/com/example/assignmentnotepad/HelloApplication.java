@@ -178,15 +178,17 @@ public class HelloApplication extends Application {
                 });
 
                 //3. Save as functionality
-                String textToSave = blankArea.getText();
-                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Text file (.txt)", "*.txt");
-                fileChooser.getExtensionFilters().add(extFilter);
-                file = fileChooser.showSaveDialog(stage);
-                fileLocation = file.getAbsolutePath();
-                System.out.println(fileLocation);
-                System.out.println(file);
+                saveAsItem.setOnAction(e3->{
+                    String textToSave = blankArea.getText();
+                    FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Text file (.txt)", "*.txt");
+                    fileChooser.getExtensionFilters().add(extFilter);
+                    file = fileChooser.showSaveDialog(stage);
+                    fileLocation = file.getAbsolutePath();
+                    System.out.println(fileLocation);
+                    System.out.println(file);
 
-                if (file != null) {
+                    if (file != null) {
+
                         try {
                             System.out.println(textToSave);
                             PrintWriter writer = new PrintWriter(file);
@@ -196,15 +198,15 @@ public class HelloApplication extends Application {
                             throw new RuntimeException(ex);
                         }
                     }
-                }
 
 
-            //Setting up stage
+                });
+
                 stage.setScene(sceneNotepad);
                 stage.setTitle("Notepad");
                 stage.show();
 
-
+            }
 
         });
 
