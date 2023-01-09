@@ -198,7 +198,17 @@ public class HelloApplication extends Application {
                             throw new RuntimeException(ex);
                         }
                     }
-                    
+
+                });
+
+
+                //4. Exit functionality (Returning back to login page)
+                exitItem.setOnAction(e4->{
+                    userArea.clear();
+                    pwdArea.clear();
+                    stage.setTitle("Login page");
+                    stage.setScene(sceneLogin);
+                    stage.show();
                 });
 
                 stage.setScene(sceneNotepad);
@@ -208,6 +218,8 @@ public class HelloApplication extends Application {
             }
 
         });
+
+
 
 
 
