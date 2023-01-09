@@ -3,6 +3,7 @@ package com.example.assignmentnotepad;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -23,14 +24,19 @@ public class HelloApplication extends Application {
 //        stage.setScene(scene);
 //        stage.show();
         Label introLabel = new Label("Login to continue");
-
+        introLabel.setAlignment(Pos.CENTER);
+        introLabel.setStyle("-fx-color:blue;");
+        Label userLabel = new Label("Username");
         TextArea userArea = new TextArea();
         userArea.setPrefHeight(30d);
 
+        Label pwdLabel = new Label("Password");
         TextArea pwdArea = new TextArea();
         pwdArea.setPrefHeight(30d);
 
         Button login = new Button("Login");
+        login.setStyle("-fx-background-color: blue;");
+        login.setStyle("fx-color:black;");
         login.setPrefHeight(35d);
         Button exit = new Button("Exit");
         exit.setPrefHeight(35d);
@@ -46,9 +52,10 @@ public class HelloApplication extends Application {
 
         VBox layout1 = new VBox(10);
         layout1.setPadding(new Insets(10d));
-        layout1.getChildren().addAll(introLabel, userArea,pwdArea,login,exit);
-        scene = new Scene(layout1);
+        layout1.getChildren().addAll(introLabel, userLabel,userArea,pwdLabel,pwdArea,login,exit);
+        scene = new Scene(layout1,400,600);
         stage.setScene(scene);
+        stage.setTitle("Welcome");
         stage.show();
 
     }
