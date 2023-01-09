@@ -206,6 +206,7 @@ public class HelloApplication extends Application {
                 exitItem.setOnAction(e4->{
                     userArea.clear();
                     pwdArea.clear();
+                    btnLogin.setFocusTraversable(false);
                     stage.setTitle("Login page");
                     stage.setScene(sceneLogin);
                     stage.show();
@@ -219,7 +220,10 @@ public class HelloApplication extends Application {
 
         });
 
-
+        //Exit functionality (Closing the Program)
+        btnExit.setOnAction(e->{
+            System.exit(0);
+        });
 
 
 
