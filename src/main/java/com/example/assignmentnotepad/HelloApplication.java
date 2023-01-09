@@ -127,8 +127,6 @@ public class HelloApplication extends Application {
                 });
 
                 //2. Save functionality
-             
-
 
                 stage.setScene(sceneNotepad);
                 stage.setTitle("Notepad");
