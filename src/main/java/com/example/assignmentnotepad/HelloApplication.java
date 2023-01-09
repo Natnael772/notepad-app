@@ -88,7 +88,8 @@ public class HelloApplication extends Application {
                 //1. Open functionality
                 openItem.setOnAction(e1->{
                     fileChooser.setTitle("Open file");
-                    fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text or files", "*.txt, *.pdf"));
+                    fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text files", "*.txt"),
+                            new FileChooser.ExtensionFilter("pdf files", "*.pdf"));
 
                     File selectedFile = fileChooser.showOpenDialog(stage);
 
