@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -81,8 +82,11 @@ public class HelloApplication extends Application {
                 sceneNotepad = new Scene(layoutNotepad,500,430);
 
 
+                FileChooser fileChooser = new FileChooser();
                 //1. Open functionality
                 openItem.setOnAction(e1->{
+                    fileChooser.setTitle("Open file");
+
 
                 });
                 //2. Save functionality
