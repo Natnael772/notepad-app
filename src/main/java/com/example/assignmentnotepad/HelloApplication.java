@@ -84,13 +84,16 @@ public class HelloApplication extends Application {
 
 
                 FileChooser fileChooser = new FileChooser();
+
                 //1. Open functionality
                 openItem.setOnAction(e1->{
                     fileChooser.setTitle("Open file");
                     fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text files", "*.txt"),
-                            new FileChooser.ExtensionFilter("pdf files", ".pdf"));
+                            new FileChooser.ExtensionFilter("pdf files", "*.pdf"));
 
                     File selectedFile = fileChooser.showOpenDialog(stage);
+
+
                 });
 
                 //2. Save functionality
