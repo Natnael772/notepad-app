@@ -2,6 +2,7 @@ package com.example.assignmentnotepad;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
+    Scene scene;
     @Override
     public void start(Stage stage) throws IOException {
 //        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -43,7 +45,11 @@ public class HelloApplication extends Application {
 
 
         VBox layout1 = new VBox(10);
+        layout1.setPadding(new Insets(10d));
         layout1.getChildren().addAll(introLabel, userArea,pwdArea,login,exit);
+        scene = new Scene(layout1);
+        stage.setScene(scene);
+        stage.show();
 
     }
 
