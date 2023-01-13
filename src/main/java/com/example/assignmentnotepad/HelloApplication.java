@@ -27,7 +27,7 @@ public class HelloApplication extends Application {
 
         Label introLabel = new Label("Login to continue");
         introLabel.setAlignment(Pos.CENTER);
-        introLabel.setStyle("-fx-color:blue;");
+      
         Label userLabel = new Label("Username");
         TextArea userArea = new TextArea();
         userArea.setPrefHeight(30d);
