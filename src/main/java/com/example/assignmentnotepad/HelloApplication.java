@@ -216,7 +216,7 @@ public class HelloApplication extends Application {
 
         });
 
-        //Exit functionality (Closing the Program)
+        //Exit (Closing the Program)
         btnExit.setOnAction(e->{
             System.exit(0);
         });
