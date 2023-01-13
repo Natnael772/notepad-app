@@ -28,14 +28,17 @@ public class HelloApplication extends Application {
         Label introLabel = new Label("Login to continue");
         introLabel.setAlignment(Pos.CENTER);
       
+        //Username field
         Label userLabel = new Label("Username");
         TextArea userArea = new TextArea();
         userArea.setPrefHeight(30d);
 
+        //Password field
         Label pwdLabel = new Label("Password");
         PasswordField pwdArea = new PasswordField();
         pwdArea.setPrefHeight(32d);
 
+        //Login button
         Button btnLogin = new Button("Login");
         btnLogin.setStyle("-fx-background-color: blue;");
         btnLogin.setStyle("fx-color:black;");
@@ -52,7 +55,7 @@ public class HelloApplication extends Application {
         errorLabel.setStyle("-fx-display:none;");
 
 
-        //Login 
+        //Login functionality
         btnLogin.setOnAction(e->{
             String username = "natty";
             String password = "123";
