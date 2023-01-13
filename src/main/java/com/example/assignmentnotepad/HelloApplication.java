@@ -86,6 +86,7 @@ public class HelloApplication extends Application {
 
                 FileChooser fileChooser = new FileChooser();
 
+                //Menu options
                 //1. Open functionality
                 openItem.setOnAction(e1->{
                     fileChooser.setTitle("Open file");
