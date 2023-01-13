@@ -52,7 +52,7 @@ public class HelloApplication extends Application {
         errorLabel.setStyle("-fx-display:none;");
 
 
-        //Login functionality
+        //Login 
         btnLogin.setOnAction(e->{
             String username = "natty";
             String password = "123";
