@@ -143,7 +143,6 @@ public class HelloApplication extends Application {
                         System.out.println(fileLocation);
                         System.out.println(file);
 
-
                         if (file != null) {
 
                             try {
@@ -157,7 +156,7 @@ public class HelloApplication extends Application {
                         }
                     }
 
-                        //If the file is already saved before
+                        //If the file has been already saved
                         else {
                             file = new File(fileLocation);
                             PrintWriter writer = null;
