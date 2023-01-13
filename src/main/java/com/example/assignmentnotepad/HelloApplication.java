@@ -81,6 +81,7 @@ public class HelloApplication extends Application {
                 fileMenu.getItems().addAll(openItem,saveItem,saveAsItem,exitItem);
                 menu.getMenus().addAll(fileMenu,editMenu,helpmenu);
 
+                //Blankarea is where a text is written
                 TextArea blankArea = new TextArea();
                 VBox layoutNotepad = new VBox(50d);
                 layoutNotepad.getChildren().addAll(menu,blankArea);
@@ -150,7 +151,7 @@ public class HelloApplication extends Application {
 
                             try {
                                 System.out.println(textToSave);
-                                PrintWriter writer = new PrintWriter(file);
+                                PrintWriter writer = new PrintWriter(file);                            
                                 writer.println(textToSave);
                                 writer.close();
                             } catch (FileNotFoundException ex) {
